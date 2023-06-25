@@ -1,0 +1,20 @@
+SELECT * FROM `usuarios` ORDER BY surename ASC;
+SELECT * FROM `producto` WHERE type='liquido';
+SELECT * FROM `ventas` WHERE cant BETWEEN 6 AND 10;
+SELECT SUM(cant) AS 'Productos_Vendidos' FROM `ventas` WHERE 1;
+SELECT * FROM `ventas` ORDER BY date ASC LIMIT 3;
+SELECT usuarios.name,producto.name,ventas.cant,ventas.date FROM `ventas` INNER JOIN usuarios ON usuarios.id = ventas.idUser INNER JOIN producto ON producto.id = ventas.idProd;
+
+SELECT usuarios.name,producto.name,ventas.cant,producto.price,producto.price * ventas.cant AS total,ventas.date FROM `ventas` INNER JOIN usuarios ON usuarios.id = ventas.idUser INNER JOIN producto ON producto.id = ventas.idProd;
+SELECT SUM(cant) AS '104_ventas_1003' FROM `ventas` WHERE idProd = 1003 AND idUser = 104;
+SELECT ventas.idProd,ventas.idUser,usuarios.name,ventas.cant,ventas.date,usuarios.localidad FROM `ventas` INNER JOIN usuarios on usuarios.id = ventas.idUser WHERE usuarios.localidad = 'Avellaneda';
+SELECT * FROM `usuarios` WHERE surename LIKE '%u%' OR name LIKE '%u%';
+SELECT * FROM `ventas` WHERE date BETWEEN '2020-05-01' AND '2021-2-29';
+SELECT * FROM `usuarios` WHERE date < '2020-12-31';
+
+INSERT INTO `producto` (`code`, `name`, `type`, `stock`, `price`, `createDate`, `modDate`) VALUES ('77900366', 'Chocolate', 'solido', '', '25.35', CURRENT_DATE(), CURRENT_DATE());
+INSERT INTO `usuarios` (`name`, `surename`, `pass`, `mail`, `date`, `localidad`) VALUES ('nombre', 'apellido', '1234', 'nombre.apellido@smpt.com', CURRENT_DATE(), 'localidad');
+UPDATE producto SET price = 66.60 WHERE type = 'solido'
+UPDATE producto SET stock = 0 WHERE stock <=20
+DELETE FROM producto WHERE id=1010
+DELETE FROM usuarios WHERE id NOT IN (SELECT ventas.idUser FROM ventas)
