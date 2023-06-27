@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "6fea3c76-2e27-4ab4-8cce-722482088806",
+		"name": "Parcial 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Silvio\",\r\n    \"apellido\": \"Chazarreta\",\r\n    \"clave\": \"FedoraNoEsWindows\",\r\n    \"mail\": \"chazasil@gmail.com\",\r\n    \"localidad\": \"CABA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:666/users",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"mail\": \"julian@gmail.com\",\r\n    \"pass\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:666/users/login",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NewArma",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\": 32,\r\n    \"name\": \"Nerf HCE\",\r\n    \"url\":\"https://www.puntofarma.com.py/imagenes/public/images/Pistola-Nerf-Fortnite-Hc-e-42980.jpg\",\r\n    \"nationality\":\"CABA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:666/armas/insertar",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"armas",
+						"insertar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetArmas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:666/armas/all",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"armas",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetByNationality",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:666/armas/search/nationality?nationality=China",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"armas",
+						"search",
+						"nationality"
+					],
+					"query": [
+						{
+							"key": "nationality",
+							"value": "China"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVentaByNationality",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:666/ventas/search/nationality?nationality=Scandinavia",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"ventas",
+						"search",
+						"nationality"
+					],
+					"query": [
+						{
+							"key": "nationality",
+							"value": "Scandinavia"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVentaById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:666/ventas/search?name=\"Nerf Elite 2\"",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"ventas",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "\"Nerf Elite 2\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:666/armas/search?id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"armas",
+						"search"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NewVentas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idWeapon\": 5,\r\n    \"qWeapon\": 1,\r\n    \"url\":\"https://http2.mlstatic.com/D_894673-MLA46452043760_062021-O.webp\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:666/ventas",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"ventas"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

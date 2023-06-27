@@ -36,12 +36,12 @@ class indexRouter{
         ->add(\Logger::validarRoles(['admin'])) //le agrego un middleware de validar roles revisar el codigo de comanda
         ->add(\Logger::class.':ValidateUserJWT'); //valida que el jwt sea de un admin (osea que el usuario logueado sea admin)
 
-        $group->get('/all',routerArmas::class . ':GetAll');
+        $group->get('/all',\routerArmas::class . ':GetAll');
 
-        $group->get('/search/nationality[/]',routerArmas::class . ':GetBy')
+        $group->get('/search/nationality[/]',\routerArmas::class . ':GetBy')
         ->add(\Keys::class.':ValidateWeapons');
 
-        $group->get('/search[/]',routerArmas::class . ':GetBy')
+        $group->get('/search[/]',\routerArmas::class . ':GetBy')
         ->add(\Keys::class.':ValidateWeapons')
         ->add(\Logger::class.':ValidateUserJWT');
 
@@ -51,7 +51,16 @@ class indexRouter{
 
      $app->group('/ventas', function($group)
      {
-        $group->post('[/]',routerVentas::class . ':NewSell');
+        $group->post('[/]',\routerVentas::class . ':NewSell')
+        ->add(\Logger::class.':ValidateUserJWT');
+
+        $group->get('/search/nationality[/]',\routerVentas::class . ':GetBy')
+        ->add(\Logger::validarRoles(['admin']))
+        ->add(\Logger::class.':ValidateUserJWT');
+
+        $group->get('/search[/]',\routerVentas::class . ':GetBy')
+        ->add(\Logger::validarRoles(['admin']))
+        ->add(\Logger::class.':ValidateUserJWT');
      });
 
 }

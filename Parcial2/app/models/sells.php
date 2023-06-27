@@ -1,5 +1,6 @@
 <?php
     include_once "pdo.php";
+    include_once "weapons.php";
     class Ventas
     {
         public $id;
@@ -47,5 +48,45 @@
             }
 
             return $objetoAccesoDato->RetornarUltimoIdInsertado();
+        }
+
+        public static function GetBy($arguments)
+        {
+            //var_dump("SELECT * from ".$_ENV['T_WEAPONS']." WHERE ".$arguments);
+            $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
+            $consulta = $objetoAccesoDato->RetornarConsulta("SELECT * from ".$_ENV['T_SELLS']." WHERE ".$arguments);           
+            try
+            {
+                $consulta->execute();
+
+                $weapons = array();
+                $list = $consulta->fetchAll(PDO::FETCH_CLASS);
+                if($list != false)
+                {
+                    return $list;
+                }
+                else
+                {
+                    throw new Exception("No Weapons");
+                }
+                
+            }
+            catch(Exception $e)
+            {
+                throw new Exception("Imposible de agregar");
+            }
+        }
+
+        public static function FilterByDates($ventas)
+        {
+            $startDate = '2023-06-25 00:00:00';
+            $endDate = '2023-06-26 23:59:59';
+
+            $filteredObjects = array_filter($ventas, function($venta) use ($startDate, $endDate) {
+                $datetime = $venta->dateSell;
+                return ($datetime >= $startDate && $datetime <= $endDate);
+            });
+
+            return $filteredObjects;
         }
     }
