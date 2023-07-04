@@ -92,6 +92,62 @@
 			"response": []
 		},
 		{
+			"name": "ModifyArma",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"id\":1,\r\n    \"price\": 23,\r\n    \"url\":\"https://http2.mlstatic.com/D_NQ_NP_818505-MLA49312087421_032022-O.webp\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:666/armas/modify",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"armas",
+						"modify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModifyArma Only Price",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"id\":1,\r\n    \"price\": 27\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:666/armas/modify",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"armas",
+						"modify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "GetArmas",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -117,6 +173,37 @@
 					"path": [
 						"armas",
 						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetArmasCSV",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:666/armas/csv",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"armas",
+						"csv"
 					]
 				}
 			},
@@ -261,6 +348,40 @@
 					"path": [
 						"armas",
 						"search"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetById Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:666/armas/delete?id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"armas",
+						"delete"
 					],
 					"query": [
 						{

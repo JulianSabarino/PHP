@@ -109,82 +109,61 @@
                 throw new Exception("Imposible de agregar");
             }
         }
-/*
 
-        static function MostrarUsuario($u) 
+        public static function DeleteBy($arguments)
         {
-            echo "\nID: ",$u->id,"\n";
-        }
+            //var_dump("SELECT * from ".$_ENV['T_WEAPONS']." WHERE ".$arguments);
 
-
-        public static function LeerUsuarios()
-        {
-            $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("SELECT * from".$_ENV['T_USERS']);
-			$consulta->execute();
-
-            $users = array();
-            $list = $consulta->fetchAll();
-            if($list != false)
+            $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
+            //$consulta = $objetoAccesoDato->RetornarConsulta("SELECT * from ".$_ENV['T_WEAPONS']." WHERE ".$arguments);           
+//Descomentar esta linea cuando se quiera eliminar
+            $consulta = $objetoAccesoDato->RetornarConsulta("DELETE from ".$_ENV['T_WEAPONS']." WHERE ".$arguments);        
+            try
             {
-                foreach($list as $fila)
+                $consulta->execute();
+                /*
+                $weapons = array();
+                $list = $consulta->fetchAll();
+                if($list != false)
                 {
-                    $u = new Usuario($fila['mail'],$fila['type'],$fila['pass'],$fila['id']);
-                    array_push($users,$u); 
-                }
-            }
-            else
-            {
-                throw new Exception("No Users");
-            }
-    		
-            return $users;
-        }
-        
-        public static function UsersByKeyValue($mail,$pass)
-        {
-            $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("SELECT * from ".$_ENV['T_USERS']." WHERE mail = :mail AND pass = :pass");
-            
-            $consulta->bindValue(':mail',$mail);
-            $consulta->bindValue(':pass',$pass);
-            
-			$consulta->execute();
-
-            $u = new stdClass;
-            $fila = $consulta->fetchObject();
-            if($fila != false)
-            {
-                //var_dump($fila);
-                $u = new Usuario($fila->mail,$fila->type,$fila->pass,$fila->id);
-            }
-            else
-            {
-                throw new Exception("Users not Found");
-            }
-    		
-            return $u;
-        }
-        
-
-        public static function BuscarUsuarioPorClaveMail($clave,$mail)
-        {
-            $message = "";
-            foreach (Usuario::LeerUsuarios() as $u) 
-            {
-                if($clave == $u->clave && $mail == $u->mail){
-                    $message = "Verificado";
-                }
-                else if ($clave != $u->clave && $mail == $u->mail)
-                {
-                    $message = "Error en los datos";
+                    foreach($list as $fila)
+                    {
+                        $w = new Arma($fila['price'],$fila['name'],$fila['url_photo'],$fila['nationality'],$fila['id']);
+                        array_push($weapons,$w); 
+                    }
+                    return $weapons;
                 }
                 else
                 {
-                    $message = "Usuario no registrado";
+                    throw new Exception("No Weapons");
                 }
+                */
+                return "OK";
+                
             }
-            return $message;
-        }*/
+            catch(Exception $e)
+            {
+                throw new Exception("Imposible de agregar");
+            }
+        }
+
+        public static function ModifyBy($arguments)
+        {
+            //var_dump("SELECT * from ".$_ENV['T_WEAPONS']." WHERE ".$arguments);
+            $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
+            var_dump($arguments);
+            $consulta = $objetoAccesoDato->RetornarConsulta($arguments);           
+            try
+            {
+                $consulta->execute();
+
+                return "OK";
+                
+            }
+            catch(Exception $e)
+            {
+                throw new Exception("Imposible de agregar");
+            }
+        }
     }    
 ?>

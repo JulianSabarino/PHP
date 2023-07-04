@@ -1,0 +1,812 @@
+{
+	"info": {
+		"_postman_id": "d44a2801-f6d9-4c2b-8384-b504b5eae4a9",
+		"name": "Comanda",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Things",
+			"item": [
+				{
+					"name": "SingUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Elbar\",\r\n    \"surname\": \"Tender\",\r\n    \"pass\": \"elbar\",\r\n    \"mail\": \"tender@gmail.com\",\r\n    \"type\": \"bar\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:666/users/singup",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"users",
+								"singup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Devolution of Code",
+			"item": [
+				{
+					"name": "1-LogIns",
+					"item": [
+						{
+							"name": "LoginSocio",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\": \"julian@gmail.com\",\r\n    \"pass\": \"julian\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:666/users/login",
+									"host": [
+										"localhost"
+									],
+									"port": "666",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LoginAdmin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\": \"sabarjul@gmail.com\",\r\n    \"pass\": \"sabarjul\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:666/users/login",
+									"host": [
+										"localhost"
+									],
+									"port": "666",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LoginCocina",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\": \"silvio@gmail.com\",\r\n    \"pass\": \"1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:666/users/login",
+									"host": [
+										"localhost"
+									],
+									"port": "666",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LoginMozo",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\": \"elmo@gmail.com\",\r\n    \"pass\": \"elmo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:666/users/login",
+									"host": [
+										"localhost"
+									],
+									"port": "666",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LoginBar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\": \"tender@gmail.com\",\r\n    \"pass\": \"elbar\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:666/users/login",
+									"host": [
+										"localhost"
+									],
+									"port": "666",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "2/3-NewOrder/GetBySector",
+					"item": [
+						{
+							"name": "2-NewPedido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idTable\":1,\r\n    \"products\":[{\"id\":1,\"cant\":1,\"sector\":\"bar\",\"delay\":15},{\"id\":3,\"cant\":2,\"sector\":\"cocina\",\"delay\":30},{\"id\":2,\"cant\":1,\"sector\":\"bar\",\"delay\":15}],\r\n    \"clientName\": \"Alfonso\",\r\n    \"url_photo\": \"https://3012748.fs1.hubspotusercontent-na1.net/hubfs/3012748/clerkenwell-grind-restaurant-tables-and-chairs-square-thumbnail-935966-edited.webp\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:666/orders",
+									"host": [
+										"localhost"
+									],
+									"port": "666",
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3-GetPedidosBySector",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:666/orders/sector",
+									"host": [
+										"localhost"
+									],
+									"port": "666",
+									"path": [
+										"orders",
+										"sector"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "4-ReadyToServe",
+					"item": [
+						{
+							"name": "Ready ID 1 (BAR)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":1688491386,\r\n    \"idProduct\": 1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:666/orders/readytoserv",
+									"host": [
+										"localhost"
+									],
+									"port": "666",
+									"path": [
+										"orders",
+										"readytoserv"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ready ID 2(BAR)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":1688491386,\r\n    \"idProduct\": 2\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:666/orders/readytoserv",
+									"host": [
+										"localhost"
+									],
+									"port": "666",
+									"path": [
+										"orders",
+										"readytoserv"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ready ID 3 (COCINA)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":1688491386,\r\n    \"idProduct\": 3\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:666/orders/readytoserv",
+									"host": [
+										"localhost"
+									],
+									"port": "666",
+									"path": [
+										"orders",
+										"readytoserv"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "5-GetMyOrder",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idTable\":1,\r\n    \"id\": 1688491386\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:666/orders/myOrder",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"orders",
+								"myOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.5-GetAllOrders Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:666/orders/stateall",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"orders",
+								"stateall"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6-Serve",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1688491386\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:666/orders/serve",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"orders",
+								"serve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7-ListTables",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:666/tables/list",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"tables",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8-Check",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1688491386\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:666/orders/check",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"orders",
+								"check"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "9-CloseTable",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idTable\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:666/tables/close",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"tables",
+								"close"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "10-GiveMeFiveStars",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1688491386,\r\n    \"tablep\":5,\r\n    \"waiter\":3,\r\n    \"cook\":7,\r\n    \"comments\": \"La comida estaba tan seca como la cara del mesero.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:666/orders/calificate",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"orders",
+								"calificate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "11/12/13-GetGeneralReports",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1688436199,\r\n    \"tablep\":5,\r\n    \"waiter\":3,\r\n    \"cook\":7,\r\n    \"comments\": \"La comida estaba tan seca como la cara del mesero.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:666/orders/calificate",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"orders",
+								"calificate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "14-GetLogo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Silvio\",\r\n    \"apellido\": \"Chazarreta\",\r\n    \"clave\": \"FedoraNoEsWindows\",\r\n    \"mail\": \"chazasil@gmail.com\",\r\n    \"localidad\": \"CABA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:666/users/logo",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"users",
+								"logo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Carpeta Ordenar",
+			"item": [
+				{
+					"name": "NewProducto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Hamburguesa Simple\",\r\n    \"crafter\":\"propia\",\r\n    \"type\":\"comida\",\r\n    \"mType\": \"unidades\",\r\n    \"mSize\": \"unidad\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:666/products",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUsers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Silvio\",\r\n    \"apellido\": \"Chazarreta\",\r\n    \"clave\": \"FedoraNoEsWindows\",\r\n    \"mail\": \"chazasil@gmail.com\",\r\n    \"localidad\": \"CABA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:666/users/getusers",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"users",
+								"getusers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:666/products",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPedidos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idTable\":1,\r\n    \"products\":[{\"id\":1,\"cant\":2},{\"id\":3,\"cant\":1}]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:666/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "IsReadyToServe?",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1688426150\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:666/orders/readytoserv",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"orders",
+								"readytoserv"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListReadyToServe",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:666/orders/serve",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"orders",
+								"serve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePedidosBySector",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"delay\":20\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:666/orders/sector",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"orders",
+								"sector"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

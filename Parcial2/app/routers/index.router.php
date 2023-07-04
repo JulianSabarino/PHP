@@ -16,6 +16,7 @@ include_once __DIR__.'/armas.router.php';
 include_once __DIR__.'/ventas.router.php';
 include_once __DIR__.'/../middlewares/Logger.php';
 include_once __DIR__.'/../middlewares/Keys.php';
+include_once __DIR__.'/../middlewares/Delete.php';
 
 class indexRouter{
     function __invoke($app) {
@@ -45,8 +46,19 @@ class indexRouter{
         ->add(\Keys::class.':ValidateWeapons')
         ->add(\Logger::class.':ValidateUserJWT');
 
- //       $group->get('/{id}',\routerUsuarios::class . ':SingUp'); // eso se manda por arguments que es un array, se levanta como $arguments['id']
- //       $group->get('/',\routerUsuarios::class . ':SingUp');
+        //$group->delete('/delete/{id}',\routerArmas::class . ':DeleteBy'); Recordar que a nivel conceptual es mejor esto
+
+        $group->delete('/delete[/]',\routerArmas::class . ':DeleteBy')
+        ->add(\Delete::class.':DeleteWeaponsLog')
+        ->add(\Keys::class.':ValidateWeapons')
+        ->add(\Logger::validarRoles(['admin']))
+        ->add(\Logger::class.':ValidateUserJWT');
+
+        $group->put('/modify[/]',\routerArmas::class . ':Modify')
+        ->add(\Logger::validarRoles(['admin']))
+        ->add(\Logger::class.':ValidateUserJWT');
+
+        $group->get('/csv[/]',routerArmas::class . ':GetCSV');//transmitir archivo como csv, esto es descargar no transferir
      });
 
      $app->group('/ventas', function($group)
